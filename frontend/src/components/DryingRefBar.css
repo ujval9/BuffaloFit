@@ -1,0 +1,40 @@
+/* DryingRefBar.css */
+.drying-ref-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+}
+
+.drying-ref-bar__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.drying-ref-bar__divider {
+  width: 1px;
+  height: 14px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.drying-ref-bar__item strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.drying-ref-bar__spacer { flex: 1; }
+
+.drying-ref-bar__live {
+  font-size: 11px;
+  color: var(--success);
+  font-weight: 500;
+}

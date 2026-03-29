@@ -1,0 +1,121 @@
+/* ClosetPage.css */
+.closet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-4);
+}
+
+.closet-page-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.closet-filters {
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+
+.closet-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+
+@media (max-width: 860px) { .closet-panels { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .closet-panels { grid-template-columns: 1fr; } }
+
+/* Table */
+.closet-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.closet-table th {
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.closet-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.closet-table tbody tr:last-child td { border-bottom: none; }
+.closet-table tbody tr:hover { background: var(--surface-alt); }
+
+/* Warmth bar */
+.warmth-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.warmth-fill-track {
+  width: 60px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.warmth-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100px;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.warmth-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #60A5FA, #1D4ED8);
+  border-radius: 4px;
+  transition: width var(--t-base);
+}
+
+.warmth-num {
+  position: absolute;
+  right: -20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Panel grid shared */
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  min-height: 160px;
+  align-content: start;
+}
+
+.panel-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  color: var(--text-muted);
+  font-size: 13px;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--r-md);
+}

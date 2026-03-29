@@ -1,0 +1,150 @@
+/* LaundryPage.css */
+.laundry-header {
+  margin-bottom: var(--sp-4);
+}
+
+/* Flow diagram */
+.laundry-flow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  margin-bottom: var(--sp-4);
+  overflow-x: auto;
+}
+
+.flow-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--r-full);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.flow-step--closet { background: var(--success-bg); color: var(--success); }
+.flow-step--washer  { background: var(--info-bg);    color: var(--primary-light); }
+.flow-step--dryer   { background: var(--warning-bg); color: var(--warning); }
+
+.flow-arrow {
+  font-size: 18px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* Zones */
+.laundry-zones {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  gap: var(--sp-4);
+}
+
+@media (max-width: 900px) {
+  .laundry-zones { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 580px) {
+  .laundry-zones { grid-template-columns: 1fr; }
+}
+
+.laundry-zone {}
+
+/* Dryer detailed list */
+.dryer-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 160px;
+}
+
+.dryer-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+}
+
+.dryer-item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 4px;
+}
+
+.dryer-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.dryer-progress-track {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dryer-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FCD34D, #F59E0B);
+  border-radius: 4px;
+  transition: width 1s linear;
+}
+
+.dryer-progress-fill--done {
+  background: linear-gradient(90deg, #6EE7B7, #10B981);
+}
+
+.dryer-setting-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dryer-setting-btn {
+  padding: 2px 8px;
+  border-radius: var(--r-full);
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+
+.dryer-setting-btn:hover { background: var(--border); }
+
+.dryer-setting-btn--active {
+  background: var(--warning);
+  border-color: var(--warning);
+  color: white;
+}
+
+/* Shared panel grid */
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  min-height: 160px;
+  align-content: start;
+}
+
+.panel-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--r-md);
+}

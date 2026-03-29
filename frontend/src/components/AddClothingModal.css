@@ -1,0 +1,121 @@
+/* AddClothingModal.css */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 150ms ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-box {
+  background: var(--surface);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 200ms ease;
+}
+
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-5) var(--sp-6) var(--sp-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.modal-body {
+  padding: var(--sp-5) var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-3);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--border);
+  margin-top: var(--sp-2);
+}
+
+/* Fabric picker */
+.fabric-picker {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.fabric-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--t-base);
+}
+
+.fabric-option:hover { border-color: #CBD5E1; background: var(--surface-alt); }
+
+.fabric-option--active {
+  border-color: var(--primary-light);
+  background: var(--info-bg);
+  color: var(--primary-light);
+  font-weight: 600;
+}
+
+/* Color swatches */
+.color-picker {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: center;
+}
+
+.color-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--t-fast), border-color var(--t-fast);
+}
+
+.color-swatch:hover { transform: scale(1.15); }
+
+.color-swatch--active {
+  border-color: var(--text-primary);
+  transform: scale(1.15);
+}
+
+.color-custom {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  padding: 2px;
+  background: transparent;
+}
