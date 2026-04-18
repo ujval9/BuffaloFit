@@ -54,7 +54,7 @@ export default function UsernameAuthPage() {
     <div className="auth-page">
       <div className="auth-card card">
         <div className="auth-logo-wrapper">
-          <img src="/logo.svg" alt="BuffaloFit" className="auth-logo" />
+          <div className="auth-emoji">🦬</div>
         </div>
         
         <h1 className="auth-title">Welcome to BuffaloFit</h1>

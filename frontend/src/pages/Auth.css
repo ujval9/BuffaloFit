@@ -53,9 +53,9 @@
   margin-bottom: var(--sp-4);
 }
 
-.auth-logo {
-  height: 60px;
-  width: auto;
+.auth-emoji {
+  font-size: 60px;
+  line-height: 1;
   filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
 }
 
