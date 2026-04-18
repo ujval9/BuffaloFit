@@ -1,6 +1,7 @@
 // pages/DailyPage.tsx
 // Main dashboard: weather, readiness check, closet + washer grids, drying ref bar
 import React, { useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   DndContext,
@@ -30,6 +31,7 @@ import './DailyPage.css';
 
 export default function DailyPage() {
   const qc = useQueryClient();
+  const navigate = useNavigate();
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 8 } }));
 
   // Data
@@ -154,15 +156,25 @@ export default function DailyPage() {
               </select>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end', gap: 'var(--sp-3)' }}>
               <button
-                className="btn btn-primary"
-                onClick={checkOutfit}
-                disabled={recLoading || selectedItemIds.size === 0 || !selectedClassId}
-                style={{ minWidth: 160 }}
+                className="btn btn-ghost"
+                onClick={() => navigate('/schedule')}
+                style={{ height: 40 }}
               >
-                {recLoading ? <><span className="spinner" style={{ width: 14, height: 14 }} /> Checking…</> : '✓ Check My Outfit'}
+                + Add Class
               </button>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                <button
+                  className="btn btn-primary"
+                  onClick={checkOutfit}
+                  disabled={recLoading || selectedItemIds.size === 0 || !selectedClassId}
+                  style={{ minWidth: 160, height: 40 }}
+                >
+                  {recLoading ? <><span className="spinner" style={{ width: 14, height: 14 }} /> Checking…</> : '✓ Check My Outfit'}
+                </button>
+              </div>
+            </div>
               {selectedItemIds.size > 0 && (
                 <span style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'right', marginTop: 4 }}>
                   {selectedItemIds.size} item{selectedItemIds.size !== 1 ? 's' : ''} selected
