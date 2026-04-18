@@ -22,10 +22,17 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# ── CORS: allow the React dev server to call our API ─────────────────────────
+# ── CORS: allow React dev server + Vercel deployment ─────────────────────────
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "https://buffalofit.vercel.app",
+        "https://buffalofit.ujval.dev",
+        # Allow any vercel preview deploy
+    ],
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

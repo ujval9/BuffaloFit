@@ -3,7 +3,7 @@
 
 export interface User {
   id: number;
-  email: string;
+  email?: string;
   name: string;
   onboarding_done: boolean;
 }

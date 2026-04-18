@@ -44,6 +44,39 @@ def login(body: schemas.LoginRequest, db: Session = Depends(get_db)):
     return user
 
 
+@router.post("/username-login", response_model=schemas.UserOut)
+def username_login(body: schemas.UsernameLoginRequest, db: Session = Depends(get_db)):
+    """
+    Demo-friendly auth: find or create a user by username alone.
+    First visit  -> creates the account automatically.
+    Return visit -> logs right back in.
+    """
+    username = body.username.strip()
+    if not username:
+        raise HTTPException(status_code=400, detail="Username cannot be empty")
+
+    # Case-insensitive lookup by name
+    user = (
+        db.query(models.User)
+        .filter(models.User.name.ilike(username))
+        .first()
+    )
+
+    if not user:
+        # First-time visitor — create their account
+        user = models.User(
+            email=None,
+            name=username,
+            password_hash=None,
+            onboarding_done=False,
+        )
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+
+    return user
+
+
 @router.patch("/onboarding/{user_id}", response_model=schemas.UserOut)
 def complete_onboarding(user_id: int, db: Session = Depends(get_db)):
     """Mark onboarding as done after user sets up their first class schedule."""

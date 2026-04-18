@@ -21,9 +21,12 @@ class LoginRequest(BaseModel):
     email: str
     password: str
 
+class UsernameLoginRequest(BaseModel):
+    username: str
+
 class UserOut(BaseModel):
     id: int
-    email: str
+    email: Optional[str] = None
     name: str
     onboarding_done: bool
 

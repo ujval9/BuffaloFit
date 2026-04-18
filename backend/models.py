@@ -18,9 +18,9 @@ class User(Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    email: Mapped[str] = mapped_column(String, unique=True, index=True, nullable=False)
+    email: Mapped[str | None] = mapped_column(String, unique=True, index=True, nullable=True)
     name: Mapped[str] = mapped_column(String, nullable=False)
-    password_hash: Mapped[str] = mapped_column(String, nullable=False)
+    password_hash: Mapped[str | None] = mapped_column(String, nullable=True)
     onboarding_done: Mapped[bool] = mapped_column(Boolean, default=False)
 
     clothes: Mapped[list["ClothingItem"]] = relationship("ClothingItem", back_populates="user")

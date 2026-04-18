@@ -55,3 +55,15 @@ INFO:     127.0.0.1:61038 - "GET /api/clothes?user_id=1 HTTP/1.1" 200 OK
 INFO:     127.0.0.1:61039 - "GET /api/classes?user_id=1 HTTP/1.1" 200 OK
 INFO:     127.0.0.1:61042 - "GET /api/clothes?user_id=1 HTTP/1.1" 200 OK
 INFO:     127.0.0.1:61042 - "GET /api/classes?user_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61193 - "GET /api/classes?user_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61683 - "GET /api/classes?user_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62134 - "GET /api/classes?user_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52549 - "GET /api/classes?user_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54495 - "GET /api/classes?user_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55610 - "GET /api/classes?user_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56827 - "GET /api/classes?user_id=1 HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [87692]
+INFO:     Stopping reloader process [87640]

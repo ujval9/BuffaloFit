@@ -1,13 +1,11 @@
 // src/App.tsx
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { getStoredUser, storeUser, removeUser } from './api/auth';
 import { User } from './types';
 
 // Pages
-import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
-import OnboardingPage from './pages/OnboardingPage';
+import UsernameAuthPage from './pages/UsernameAuthPage';
 import DailyPage from './pages/DailyPage';
 import ClosetPage from './pages/ClosetPage';
 import LaundryPage from './pages/LaundryPage';
@@ -50,29 +48,12 @@ export default function App() {
           {user && <Navbar />}
           <Routes>
             {/* Public */}
-            <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/" replace />} />
-            <Route path="/signup" element={!user ? <SignupPage /> : <Navigate to="/" replace />} />
-
-            {/* Onboarding — shown right after signup before main app */}
-            <Route
-              path="/onboarding"
-              element={
-                user && !user.onboarding_done
-                  ? <OnboardingPage />
-                  : <Navigate to={user ? '/' : '/login'} replace />
-              }
-            />
-
+            <Route path="/login" element={!user ? <UsernameAuthPage /> : <Navigate to="/" replace />} />
+            
             {/* Protected main app */}
             <Route
               path="/"
-              element={
-                !user
-                  ? <Navigate to="/login" replace />
-                  : !user.onboarding_done
-                  ? <Navigate to="/onboarding" replace />
-                  : <DailyPage />
-              }
+              element={!user ? <Navigate to="/login" replace /> : <DailyPage />}
             />
             <Route
               path="/closet"
@@ -92,3 +73,4 @@ export default function App() {
     </AuthContext.Provider>
   );
 }
+
