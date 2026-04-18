@@ -156,7 +156,7 @@ export default function DailyPage() {
               </select>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end', gap: 'var(--sp-3)' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: 'var(--sp-3)', marginTop: 24 }}>
               <button
                 className="btn btn-ghost"
                 onClick={() => navigate('/schedule')}
@@ -173,13 +173,12 @@ export default function DailyPage() {
                 >
                   {recLoading ? <><span className="spinner" style={{ width: 14, height: 14 }} /> Checking…</> : '✓ Check My Outfit'}
                 </button>
+                {selectedItemIds.size > 0 && (
+                  <span style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'right', marginTop: 4 }}>
+                    {selectedItemIds.size} item{selectedItemIds.size !== 1 ? 's' : ''} selected
+                  </span>
+                )}
               </div>
-            </div>
-              {selectedItemIds.size > 0 && (
-                <span style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'right', marginTop: 4 }}>
-                  {selectedItemIds.size} item{selectedItemIds.size !== 1 ? 's' : ''} selected
-                </span>
-              )}
             </div>
           </div>
 
